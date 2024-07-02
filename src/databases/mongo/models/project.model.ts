@@ -1,5 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
-import { Project } from '../interfaces/index';
+import { Project } from '../interfaces';
 
 const projectSchema = new mongoose.Schema<Project>({
   title: {
@@ -19,8 +19,16 @@ const projectSchema = new mongoose.Schema<Project>({
     enum: ['not started', 'in progress', 'completed'],
     default: 'not started',
   },
-  userIds: [{ type: Number }],
-  tasks: [{ type: Schema.Types.ObjectId, ref: 'Task' }]
+  taskIds: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Task',
+    default: [],
+  }],
+  userIds: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    default: [],
+  }],
 });
 
 export const ProjectModel = mongoose.model<Project>('Project', projectSchema);

@@ -19,8 +19,16 @@ const taskSchema = new mongoose.Schema<Task>({
     enum: ['not started', 'in progress', 'completed'],
     default: 'not started',
   },
-  userIds: [{ type: Number }],
-  projectId: { type: Schema.Types.ObjectId, ref: 'Project' }
+  userIds: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    default: [],
+  }],
+  projectId: {
+    type: Schema.Types.ObjectId,
+    ref: 'Project',
+    default: null
+  }
 });
 
 export const TaskModel = mongoose.model<Task>('Task', taskSchema);

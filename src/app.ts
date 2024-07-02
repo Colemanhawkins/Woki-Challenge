@@ -1,20 +1,15 @@
 
 import { envs } from './config/envs';
-import { MongoDatabase , SequelizeDatabase} from './databases/index';
+import { MongoDatabase } from './databases/index';
 import { Server } from './presentation/server';
-import { initializeModels } from './databases/sequelize/models';
+import { AppRoutes } from './presentation/routes';
 
 (async()=> {
   main();
 })();
 
 async function main() {
-  const sequelizeDb = SequelizeDatabase.getInstance();
   try {
-    // inicializacion sequelize
-    await sequelizeDb.connect();
-    await initializeModels();
-
     //inicializacion mongo
     await MongoDatabase.connect({
       mongoUrl: envs.MONGO_URL,
@@ -22,7 +17,8 @@ async function main() {
     });
     //inicializacion express
     const server = new Server({
-      port: envs.PORT
+      port: envs.PORT,
+      routes: AppRoutes.routes,
     });
     server.start();
   } catch (error) {
