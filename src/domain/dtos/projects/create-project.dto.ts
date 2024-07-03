@@ -1,4 +1,4 @@
-export class CreateTaskDto {
+export class CreateProjectDto {
     constructor(
       public readonly title: string,
       public readonly description: string,
@@ -6,7 +6,7 @@ export class CreateTaskDto {
       public readonly status: 'not started' | 'in progress' | 'completed'
     ) {}
   
-    static create(props: any): [string?, CreateTaskDto?] {
+    static create(props: any): [string?, CreateProjectDto?] {
       const { title, description, dueDate, status } = props;
   
       if (!title) {
@@ -23,11 +23,11 @@ export class CreateTaskDto {
           return ['dueDate must be a valid Date object'];
         }
       }
-
-       const newStatus =   status === 'not started' 
-                        || status ===  'in progress'
-                        || status ===  'completed' ? status  : 'not started' 
       
-      return [undefined, new CreateTaskDto(title, description, dueDate, newStatus)];
+      const newStatus =   status === 'not started' 
+      || status ===  'in progress'
+      || status ===  'completed' ? status  : 'not started' 
+    
+      return [undefined, new CreateProjectDto(title, description, dueDate, newStatus)];
     }
   }

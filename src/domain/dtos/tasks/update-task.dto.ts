@@ -1,15 +1,17 @@
-export class UpdateTodoDto {
+import { Types } from "mongoose";
+
+export class UpdateTaskDto {
   constructor(
-    public readonly _id: string,
+    public readonly _id: Types.ObjectId,
     public readonly title?: string,
     public readonly description?: string,
     public readonly dueDate?: Date,
     public readonly status?: 'not started' | 'in progress' | 'completed',
-    public readonly userIds?: number[],
-    public readonly projectId?: string,
+    public readonly userIds?: Types.ObjectId[],
+    public readonly projectId?: Types.ObjectId,
   ) {}
 
-  static create(props: any): [string?, UpdateTodoDto?] {
+  static create(props: any): [string?, UpdateTaskDto?] {
     const { _id, title, description, dueDate, status, userIds, projectId } = props;
 
     if (!_id || !/^[0-9a-fA-F]{24}$/.test(_id)) {
@@ -17,12 +19,20 @@ export class UpdateTodoDto {
     }
 
     if(!title)return ['Title is required']
-
-    if (dueDate && !(dueDate instanceof Date)) {
-      return ['dueDate must be a valid Date object'];
+    
+    if ( dueDate ) {
+      const newdueDate = new Date(dueDate)
+      if ( newdueDate.toString() === 'Invalid Date' && newdueDate > new Date() ) {
+        return ['dueDate must be a valid Date object'];
+      }
     }
+  
+    const newStatus =   status === 'not started' 
+    || status ===  'in progress'
+    || status ===  'completed' ? status  : 'not started' 
 
-    return [undefined, new UpdateTodoDto(_id, title, description, dueDate, status, userIds, projectId)];
+
+    return [undefined, new UpdateTaskDto(_id, title, description, dueDate, newStatus, userIds, projectId)];
   }
 
   get values() {
