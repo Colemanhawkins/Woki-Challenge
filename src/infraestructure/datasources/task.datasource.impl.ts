@@ -20,9 +20,9 @@ export class TaskDatasourceImpl implements TaskDatasource {
   }
 
   async updateById(updateTaskDto: UpdateTaskDto): Promise<TaskEntity> {
-    await this.findById(updateTaskDto._id.toString());
-    const updatedTask = await TaskModel.findByIdAndUpdate(updateTaskDto._id, updateTaskDto.values, { new: true }).exec();
-    if (!updatedTask) throw `Task with id ${updateTaskDto._id} not found after update`;
+    await this.findById(updateTaskDto.id.toString());
+    const updatedTask = await TaskModel.findByIdAndUpdate(updateTaskDto.id, updateTaskDto.values, { new: true }).exec();
+    if (!updatedTask) throw `Task with id ${updateTaskDto.id} not found after update`;
     return TaskEntity.fromObject(updatedTask);
   }
 

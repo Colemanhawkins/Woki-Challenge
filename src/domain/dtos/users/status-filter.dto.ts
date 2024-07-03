@@ -7,7 +7,6 @@ export class StatusFilterDto {
 
   static create(props: any): [string?, StatusFilterDto?] {
     const { _id,  status } = props;
-    console.log(status)
     if (!_id || !/^[0-9a-fA-F]{24}$/.test(_id)) {
       return ['id must be a valid MongoDB ObjectId'];
     }

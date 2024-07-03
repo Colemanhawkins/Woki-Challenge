@@ -28,7 +28,6 @@ export class UserController {
       const { user , status } = req.body
       const props = { _id: user._id , status}
       const [ error, statusFilterDto ] = StatusFilterDto.create( props );
-      console.log(statusFilterDto)
       if( error ) return res.status( 400 ).json( { error } );
       if ( !statusFilterDto) return res.status( 500 ).json( { error } );
       const tasks = await this.userRepository.getUserTasks(statusFilterDto);

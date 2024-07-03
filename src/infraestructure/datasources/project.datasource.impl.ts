@@ -20,9 +20,9 @@ export class ProjectDatasourceImpl implements ProjectDatasource {
   }
 
   async updateById(updateProjectDto: UpdateProjectDto): Promise<ProjectEntity> {
-    await this.findById(updateProjectDto._id.toString());
-    const updatedProject = await ProjectModel.findByIdAndUpdate(updateProjectDto._id, updateProjectDto.values, { new: true }).exec();
-    if (!updatedProject) throw `Project with id ${updateProjectDto._id} not found after update`;
+    await this.findById(updateProjectDto.id.toString());
+    const updatedProject = await ProjectModel.findByIdAndUpdate(updateProjectDto.id, updateProjectDto.values, { new: true }).exec();
+    if (!updatedProject) throw `Project with id ${updateProjectDto.id} not found after update`;
     return ProjectEntity.fromObject(updatedProject);
   }
 

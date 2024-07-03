@@ -2,7 +2,7 @@ import { Types } from "mongoose";
 
 export class UpdateTaskDto {
   constructor(
-    public readonly _id: Types.ObjectId,
+    public readonly id: Types.ObjectId,
     public readonly title?: string,
     public readonly description?: string,
     public readonly dueDate?: Date,
@@ -12,9 +12,9 @@ export class UpdateTaskDto {
   ) {}
 
   static create(props: any): [string?, UpdateTaskDto?] {
-    const { _id, title, description, dueDate, status, userIds, projectId } = props;
+    const { id, title, description, dueDate, status, userIds, projectId } = props;
 
-    if (!_id || !/^[0-9a-fA-F]{24}$/.test(_id)) {
+    if (!id || !/^[0-9a-fA-F]{24}$/.test(id)) {
       return ['id must be a valid MongoDB ObjectId'];
     }
 
@@ -27,12 +27,14 @@ export class UpdateTaskDto {
       }
     }
   
-    const newStatus =   status === 'not started' 
-                     || status ===  'in progress'
-                     || status ===  'completed' ? status  : 'not started' 
+      
+    const allowedStatuses = ['not started', 'in progress', 'completed'];
+  
+    const isValid = allowedStatuses.includes(status);
 
+    if(!isValid) return ['Invalid status, must be one of: "not started", "in progress", "completed"']
 
-    return [undefined, new UpdateTaskDto(_id, title, description, dueDate, newStatus, userIds, projectId)];
+    return [undefined, new UpdateTaskDto(id, title, description, dueDate, status, userIds, projectId)];
   }
 
   get values() {
