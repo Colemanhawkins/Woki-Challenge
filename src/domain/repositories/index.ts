@@ -1,3 +1,4 @@
 export * from './project.repository'
 export * from './task.repository'
 export * from  './auth.repository'
+export * from './user.repository'

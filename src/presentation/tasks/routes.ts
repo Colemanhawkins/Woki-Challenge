@@ -1,8 +1,7 @@
 import { Router } from 'express';
 import { TaskController } from './controller';
-import { TaskRepositoryImpl } from '../../infraestructure/repositories/task.repository.impl';
-import { TaskDatasourceImpl } from '../../infraestructure/datasources/task.datasouce.impl';
 import { AuthMiddleware } from '../middleware/auth.middleware';
+import { TaskDatasourceImpl, TaskRepositoryImpl } from '../../infraestructure';
 
 export class TaskRoutes {
 

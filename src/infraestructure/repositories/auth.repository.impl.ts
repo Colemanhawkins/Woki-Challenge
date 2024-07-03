@@ -1,4 +1,4 @@
-import {  AuthDatasource, AuthRepository, LoginUserDto, ProjectEntity } from '../../domain';
+import {  AuthDatasource, AuthRepository, LoginUserDto } from '../../domain';
 
 export class AuthRepositoryImpl implements AuthRepository {
 

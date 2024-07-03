@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
-import { CreateTaskDto, UpdateTaskDto } from '../../domain/dtos';
-import { TaskRepository } from '../../domain';
+import { TaskRepository, CreateTaskDto, UpdateTaskDto} from '../../domain';
 
 export class TaskController {
 
@@ -35,7 +34,6 @@ export class TaskController {
         const todo = await this.taskRepository.create( createTaskDto! );
         res.json( todo );
     }catch ( error ) {
-        console.log(error)
         res.status( 400 ).json( { error } );
     }
   };

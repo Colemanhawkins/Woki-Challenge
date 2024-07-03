@@ -28,8 +28,8 @@ export class UpdateTaskDto {
     }
   
     const newStatus =   status === 'not started' 
-    || status ===  'in progress'
-    || status ===  'completed' ? status  : 'not started' 
+                     || status ===  'in progress'
+                     || status ===  'completed' ? status  : 'not started' 
 
 
     return [undefined, new UpdateTaskDto(_id, title, description, dueDate, newStatus, userIds, projectId)];

@@ -28,8 +28,8 @@ export class UpdateProjectDto {
       }
 
       const newStatus =   status === 'not started' 
-      || status ===  'in progress'
-      || status ===  'completed' ? status  : 'not started' 
+                       || status ===  'in progress'
+                       || status ===  'completed' ? status  : 'not started' 
   
       return [undefined, new UpdateProjectDto(_id, title, description, dueDate, newStatus, userIds, projectId)];
     }

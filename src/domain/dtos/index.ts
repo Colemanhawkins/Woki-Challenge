@@ -5,3 +5,5 @@ export * from './projects/create-project.dto'
 export * from './projects/update-project.dto'
 
 export * from './auth/login-user.dto'
+
+export * from './users/status-filter.dto'

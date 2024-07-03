@@ -25,8 +25,8 @@ export class CreateProjectDto {
       }
       
       const newStatus =   status === 'not started' 
-      || status ===  'in progress'
-      || status ===  'completed' ? status  : 'not started' 
+                       || status ===  'in progress'
+                       || status ===  'completed' ? status  : 'not started' 
     
       return [undefined, new CreateProjectDto(title, description, dueDate, newStatus)];
     }

@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
-import { CreateProjectDto, UpdateProjectDto } from '../../domain/dtos';
-import { ProjectRepository } from '../../domain';
+import { ProjectRepository, UpdateProjectDto, CreateProjectDto } from '../../domain';
 
 export class ProjectController {
 

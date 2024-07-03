@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { TaskRoutes } from './tasks/routes';
 import { ProjectRoutes } from './projects/routes';
 import { AuthRoutes } from './auth/routes';
+import { UserRoutes } from './users/routes';
 
 export class AppRoutes {
 
@@ -14,6 +15,8 @@ export class AppRoutes {
     router.use('/api/projects', ProjectRoutes.routes)
 
     router.use('/api/auth', AuthRoutes.routes)
+
+    router.use('/api/users',  UserRoutes.routes)
 
     return router;
   }

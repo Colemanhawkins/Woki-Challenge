@@ -1,4 +1,4 @@
-import {  CreateProjectDto, ProjectDatasource, ProjectEntity, ProjectRepository, UpdateProjectDto, UpdateTaskDto } from '../../domain';
+import {  CreateProjectDto, ProjectDatasource, ProjectEntity, ProjectRepository, UpdateProjectDto } from '../../domain';
 
 export class ProjectRepositoryImpl implements ProjectRepository {
 
