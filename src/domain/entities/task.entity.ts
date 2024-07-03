@@ -34,16 +34,4 @@ export class TaskEntity {
       return new TaskEntity(_id, title, description, dueDate, status || 'not started', userIds || [], projectId || null);
     }
   
-    // Método para convertir la entidad a un objeto plano compatible con Mongoose
-    public toMongooseObject(): any {
-      return {
-        _id: this._id,
-        title: this.title,
-        description: this.description,
-        dueDate: this.dueDate,
-        status: this.status,
-        userIds:this.userIds.length > 0 ? this.userIds : [],
-        projectId: this.projectId
-      };
-    }
   }

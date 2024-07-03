@@ -4,7 +4,6 @@ import { ProjectRepository } from '../../domain';
 
 export class ProjectController {
 
-  //* DI
   constructor(
     private readonly projectRepository: ProjectRepository,
   ) { }
@@ -13,9 +12,9 @@ export class ProjectController {
     try {
         const projects = await this.projectRepository.getAll();
         return res.json( projects );
-      } catch ( error ) {
+    }catch ( error ) {
         res.status( 400 ).json( { error } );
-      }
+    }
   };
 
   public getProjectsById = async ( req: Request, res: Response ) => {
@@ -23,7 +22,7 @@ export class ProjectController {
     try {
       const project = await this.projectRepository.findById( id );
       res.json( project );
-    } catch ( error ) {
+    }catch ( error ) {
       res.status( 400 ).json( { error } );
     }
   };
@@ -34,9 +33,9 @@ export class ProjectController {
         if ( error ) return res.status( 400 ).json( { error } );
         const project = await this.projectRepository.create( createProjectDto! );
         res.json( project );
-      } catch ( error ) {
+    }catch ( error ) {
         res.status( 400 ).json( { error } );
-      }
+    }
   };
 
   public updateProject = async ( req: Request, res: Response ) => {
@@ -46,7 +45,7 @@ export class ProjectController {
         if ( error ) return res.status( 400 ).json( { error } );
         const updatedProject = await this.projectRepository.updateById( updateProjectDto! );
         return res.json( updatedProject );
-        } catch(error){
+    }catch(error){
         return res.status( 400 ).json( { error } );
     }
   };
@@ -56,7 +55,7 @@ export class ProjectController {
         const id = req.params.id;
         const deletedProject = await this.projectRepository.deleteById( id );
         res.json( deletedProject );
-    } catch(error){
+    }catch(error){
         return res.status( 400 ).json( { error } );
     }
   };

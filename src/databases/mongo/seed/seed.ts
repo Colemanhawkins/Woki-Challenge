@@ -1,6 +1,6 @@
 import { MongoDatabase } from '..';
 import { UserModel, ProjectModel, TaskModel } from '../models';
-import { envs } from '../../../config';
+import { bcryptAdapter, envs } from '../../../config';
 import { seedData } from './data';
 import  {  Types } from 'mongoose';
 
@@ -26,9 +26,12 @@ async function main() {
     ProjectModel.deleteMany({}),
     TaskModel.deleteMany({})
   ]);
-
+  const usersWithHashedPasswords = seedData.users.map(user => ({
+    ...user,
+    password: bcryptAdapter.hash(user.password),
+  }));
   // Crear usuarios
-  const users = await UserModel.insertMany(seedData.users);
+  const users = await UserModel.insertMany(usersWithHashedPasswords);
 
   // Crear proyectos con referencias a usuarios
   const projects = await ProjectModel.insertMany(seedData.projects.map((project, index) => ({

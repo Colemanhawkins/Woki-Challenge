@@ -1,5 +1,5 @@
 
-import { CreateProjectDto, UpdateProjectDto} from '../dtos';
+import { CreateProjectDto, UpdateProjectDto } from '../dtos';
 import { ProjectEntity } from '../entities'
 
 export abstract class ProjectDatasource {

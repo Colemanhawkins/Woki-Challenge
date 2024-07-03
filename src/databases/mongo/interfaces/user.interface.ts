@@ -5,6 +5,7 @@ export interface User extends Document {
     lastName: string;
     email: string;
     password: string;
+    role:string
     taskIds: Types.ObjectId[];
     projectIds: Types.ObjectId[];
   }

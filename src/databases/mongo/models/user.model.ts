@@ -21,6 +21,11 @@ const userSchema = new mongoose.Schema<User>({
     type: String,
     required: true,
   },
+  role: {
+    type: String,
+    default: 'USER_ROLE',
+    enum: ['ADMIN_ROLE','USER_ROLE']
+  },
   projectIds: [{
     type: Schema.Types.ObjectId,
     ref: 'Project',

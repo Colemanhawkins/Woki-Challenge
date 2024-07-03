@@ -4,7 +4,6 @@ import { TaskRepository } from '../../domain';
 
 export class TaskController {
 
-  //* DI
   constructor(
     private readonly taskRepository: TaskRepository,
   ) { }
@@ -14,10 +13,9 @@ export class TaskController {
     try {
         const tasks = await this.taskRepository.getAll();
         return res.json( tasks );
-      } catch ( error ) {
+    }catch ( error ) {
         res.status( 400 ).json( { error } );
-      }
-
+    }
   };
 
   public getTaskById = async ( req: Request, res: Response ) => {
@@ -25,7 +23,7 @@ export class TaskController {
     try {
       const task = await this.taskRepository.findById( id );
       res.json( task );
-    } catch ( error ) {
+    }catch ( error ) {
       res.status( 400 ).json( { error } );
     }
   };
@@ -34,13 +32,12 @@ export class TaskController {
     try {
         const [ error, createTaskDto ] = CreateTaskDto.create( req.body );
         if ( error ) return res.status( 400 ).json( { error } );
-    
         const todo = await this.taskRepository.create( createTaskDto! );
         res.json( todo );
-      } catch ( error ) {
+    }catch ( error ) {
         console.log(error)
         res.status( 400 ).json( { error } );
-      }
+    }
   };
 
   public updateTask = async ( req: Request, res: Response ) => {
@@ -50,7 +47,7 @@ export class TaskController {
         if ( error ) return res.status( 400 ).json( { error } );
         const updatedTask = await this.taskRepository.updateById( updateTaskDto! );
         return res.json( updatedTask );
-        } catch(error){
+    }catch(error){
         return res.status( 400 ).json( { error } );
     }
   };
@@ -60,7 +57,7 @@ export class TaskController {
         const id = req.params.id;
         const deletedTask = await this.taskRepository.deleteById( id );
         res.json( deletedTask );
-    } catch(error){
+    }catch(error){
     return res.status( 400 ).json( { error } );
     }
   };

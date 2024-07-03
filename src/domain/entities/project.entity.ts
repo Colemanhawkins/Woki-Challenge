@@ -33,16 +33,5 @@ export class ProjectEntity {
   
       return new ProjectEntity(_id, title, description, dueDate, status || 'not started', userIds || [], taskIds || []);
     }
-  
-    public toMongooseObject(): any {
-      return {
-        _id: this._id,
-        title: this.title,
-        description: this.description,
-        dueDate: this.dueDate,
-        status: this.status,
-        userIds: this.userIds.length > 0 ? this.userIds : [],
-        taskIds: this.taskIds.length > 0 ? this.taskIds : [] 
-      };
-    }
+
   }

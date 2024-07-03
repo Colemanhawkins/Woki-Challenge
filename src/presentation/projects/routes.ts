@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { ProjectController } from './controller';
 import { ProjectDatasourceImpl } from '../../infraestructure/datasources/project.datasource.impl';
 import { ProjectRepositoryImpl } from '../../infraestructure/repositories/project.repository.impl';
+import { AuthMiddleware } from '../middleware/auth.middleware';
 
 export class ProjectRoutes {
 
@@ -16,9 +17,9 @@ export class ProjectRoutes {
     router.get('/', projectController.getProjects );
     router.get('/:id', projectController.getProjectsById );
     
-    router.post('/', projectController.createProject );
-    router.put('/:id', projectController.updateProject );
-    router.delete('/:id', projectController.deleteProject );
+    router.post('/',  [AuthMiddleware.validateJWT],projectController.createProject );
+    router.put('/:id',  [AuthMiddleware.validateJWT], projectController.updateProject );
+    router.delete('/:id', [AuthMiddleware.validateJWT], projectController.deleteProject );
 
 
     return router;
