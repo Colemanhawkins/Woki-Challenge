@@ -46,16 +46,16 @@ O
 
 ## Uso:
 Una vez completado el paso 4 y teniendo nuestra DB en ejecucion en docker desktop la Api.
-Necesitaremos colocar en la Url este path para comenzar a interactuar con la Api  ` http://localhost:3000/api`
+Necesitaremos colocar en la Url este path para comenzar a interactuar con la Api  ` http://localhost:3000`
 
 ## Endpoints
 
 
 # Tasks
 
--    ` GET /api/tasks`: Obtenemos una lista de todos las tareas.
--    ` GET /api/tasks/:id`: Obtenemos una tarea única por su ID.
--    ` Post /api/tasks`: Creamos una tarea en la base de datos.Ruta protegida *
+-    ` GET /tasks`: Obtenemos una lista de todos las tareas.
+-    ` GET /tasks/:id`: Obtenemos una tarea única por su ID.
+-    ` Post /tasks`: Creamos una tarea en la base de datos.Ruta protegida *
      - Los siguientes datos son requeridos en el body en formato Json:
      -   `title`: El titulo de la tarea (required).
      -   `description`: Descripcion de la misma(required).
@@ -66,9 +66,9 @@ Necesitaremos colocar en la Url este path para comenzar a interactuar con la Api
 
 # Projects
 
--    ` GET /api/projects`: Obtenemos una lista de todos las projectos.
--    ` GET /api/projects/:id`: Obtenemos un projecto única por su ID.
--    ` Post /api/projects`: Creamos un projecto en la base de datos.Ruta protegida *
+-    ` GET /projects`: Obtenemos una lista de todos las projectos.
+-    ` GET /projects/:id`: Obtenemos un projecto única por su ID.
+-    ` Post /projects`: Creamos un projecto en la base de datos.Ruta protegida *
      - Los siguientes datos son requeridos en el body en formato Json:
      -   `title`: El titulo del projecto (required).
      -   `description`: Descripcion de la misma(required).
@@ -79,7 +79,7 @@ Necesitaremos colocar en la Url este path para comenzar a interactuar con la Api
 
 # Auth
 
--    ` GET /api/auth`: Obtenemos el token JWT para ejecutar las Rutas protegidas.
+-    ` GET /auth`: Obtenemos el token JWT para ejecutar las Rutas protegidas.
         - Los siguientes datos son requeridos en el body en formato Json:
         -   `email`: test1@google.com.
         -   `password`: hashed_password_here.
@@ -90,7 +90,7 @@ NOTA2: En la creacion de seed el usuario proporcionado en esta ruta es el unico 
 
 # Users
 
--    ` GET /api/users/projects`: Obtenemos una lista de todos nuestros projectos asignados. Ruta protegida *
--    ` GET /api/tasks/tasks`: Obtenemos una lista de todos nuestras tareas asignadas. Ruta protegida *
+-    ` GET /users/projects`: Obtenemos una lista de todos nuestros projectos asignados. Ruta protegida *
+-    ` GET /tasks/tasks`: Obtenemos una lista de todos nuestras tareas asignadas. Ruta protegida *
 
 Por ultimo en la ruta de root  'insomnia/' pueden tener mi coleccion de rutas en formado json en insomnia tendran que importarlo y tendran las rutas ya configuradas y listas para usar.
