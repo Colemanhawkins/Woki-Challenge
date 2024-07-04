@@ -15,7 +15,7 @@ También empleé librerías clave como Express para el servidor HTTP, Mongoose p
 
    se necesita tener instalado Docker Desktop : [Docker Desktop](https://www.docker.com/products/docker-desktop/)
    
-   se necesita tenes instalado MongoDb Compas o Cualquier Gestos de Bases de datos que soporte bases de datos MongoDB, en este caso yo utilize Mongo Compass:  [Mongo Compass](https://www.mongodb.com/es/products/tools/compass)
+   se necesita tenes instalado MongoDb Compas o Cualquier Gestor de Bases de datos que soporte bases de datos MongoDB, en este caso yo utilize Mongo Compass:  [Mongo Compass](https://www.mongodb.com/es/products/tools/compass)
    
    se necesita algun programa para interactuar con la Api en este caso yo utilice y recomiendo mucho INSOMNIA : [INSOMNIA](https://insomnia.rest/download)
 
