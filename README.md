@@ -23,15 +23,19 @@ También empleé librerías clave como Express para el servidor HTTP, Mongoose p
   ```bash
   $ npm install
   ```
-# 2 tener docker desktop abierto y ejectutar(para tener la db levantada en una maquina virtual):
+# 2 instalar dependencias:
+
+ Crear en el root del projecto un archivo  `.env` pegar en el todo el contenido del archivo  `.env.template`
+
+# 3 tener docker desktop abierto y ejectutar(para tener la db levantada en una maquina virtual):
   ```bash
   $ docker compose up --build
   ```
-# 3 una vez levantado todo llenar DB con registros:
+# 4 una vez levantado todo llenar DB con registros:
   ```bash
   $ npm run seed
   ```
-# 4 ejecutar el proyecto :
+# 5 ejecutar el proyecto :
   ```bash
   $ npm run dev 
   ```
