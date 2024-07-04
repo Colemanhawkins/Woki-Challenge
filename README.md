@@ -46,7 +46,7 @@ O
 
 ## Uso:
 Una vez completado el paso 4 y teniendo nuestra DB en ejecucion en docker desktop la Api.
-Necesitaremos colocar en la Url este path para comenzar a interactuar con la Api  ` http://localhost:3000`
+Necesitaremos colocar en la Url este path para comenzar a interactuar con la Api  ` http://localhost:3000/api`
 
 ## Endpoints
 
