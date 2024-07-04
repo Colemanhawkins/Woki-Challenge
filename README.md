@@ -23,9 +23,9 @@ También empleé librerías clave como Express para el servidor HTTP, Mongoose p
   ```bash
   $ npm install
   ```
-## 2 instalar dependencias:
+## 2 crear Archivo de variables de entorno:
 
- Crear en el root del projecto un archivo  `.env` pegar en el todo el contenido del archivo  `.env.template`
+ Crear en el root del projecto un archivo  `.env` (para tener las variables de entorno) pegar en el todo el contenido del archivo  `.env.template`
 
 ## 3 tener docker desktop abierto y ejectutar(para tener la db levantada en una maquina virtual):
   ```bash
