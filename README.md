@@ -84,15 +84,15 @@ Necesitaremos colocar en la Url este path para comenzar a interactuar con la Api
 
 -    ` GET /auth`: Obtenemos el token JWT para ejecutar las Rutas protegidas.
         - Los siguientes datos son requeridos en el body en formato Json:
-        -   `email`: test1@google.com.
-        -   `password`: hashed_password_here.
+        -   `email`: test1@google.com .
+        -   `password`: hashed_password_here .
     
 NOTA1: una vez obtenido el token es necesario colocarlo en la configuracion de Auth / Bearer Token  y suministrar el token ahi para poder ejecutar las rutas. 
 
 NOTA2: En la creacion de seed el usuario proporcionado en esta ruta es el unico que fue setiado con su rol de 'ADMIN_ROLE' y el unico que puede obtener un token JWT.
 
 ## Users
-
+   Ambas en el body en formato Json deben tener su 'status': ('not started', 'in progress', 'completed'): 
 -    ` GET /users/projects`: Obtenemos una lista de todos nuestros projectos asignados. Ruta protegida *
 -    ` GET /tasks/tasks`: Obtenemos una lista de todos nuestras tareas asignadas. Ruta protegida *
 
