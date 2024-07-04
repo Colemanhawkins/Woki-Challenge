@@ -12,8 +12,11 @@ Para la validación y manejo de errores, utilicé Dtos validando inputs , Patron
 También empleé librerías clave como Express para el servidor HTTP, Mongoose para la conexión con MongoDB, bcryptjs para el hashing de contraseñas y jsonwebtoken para la gestión de tokens JWT. Además, utilize Docker para poder emplear y tener una base de datos MongoDb constantemente a disposicion.
 
 # Requerimientos:
+
    se necesita tener instalado Docker Desktop : [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+   
    se necesita tenes instalado MongoDb Compas o Cualquier Gestos de Bases de datos que soporte bases de datos MongoDB, en este caso yo utilize Mongo Compass:  [Mongo Compass]((https://www.mongodb.com/es/products/tools/compass))
+   
    se necesita algun programa para interactuar con la Api en este caso yo utilice y recomiendo mucho INSOMNIA : [INSOMNIA](https://insomnia.rest/download)
 
 # Pasos:
