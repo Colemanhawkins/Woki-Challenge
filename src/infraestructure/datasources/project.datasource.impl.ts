@@ -5,7 +5,7 @@ export class ProjectDatasourceImpl implements ProjectDatasource {
 
   async create(createProjectDto: CreateProjectDto): Promise<ProjectEntity> {
         const project = await ProjectModel.create(createProjectDto);
-        return ProjectEntity.fromObject(project.toObject());
+        return ProjectEntity.fromObject(project);
   }
 
   async getAll(): Promise<ProjectEntity[]> {

@@ -5,7 +5,7 @@ export class TaskDatasourceImpl implements TaskDatasource {
 
   async create(createTaskDto: CreateTaskDto): Promise<TaskEntity> {
         const task = await TaskModel.create(createTaskDto);
-        return TaskEntity.fromObject(task.toObject());
+        return TaskEntity.fromObject(task);
   }
 
   async getAll(): Promise<TaskEntity[]> {

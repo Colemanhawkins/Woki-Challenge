@@ -14,6 +14,7 @@ export class UserEntity {
     ) {}
 
     public static fromObject(object: any): UserEntity {
+      if(object === null) throw CustomError.badRequest('Invalid Email')
       const { _id, firstName, lastName, email, password, role, projectIds, taskIds } = object;
       if (!_id) throw CustomError.badRequest('Id is required');
       if (!firstName) throw CustomError.badRequest('First Name is required');

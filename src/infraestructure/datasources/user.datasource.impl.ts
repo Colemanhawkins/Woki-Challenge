@@ -1,8 +1,16 @@
-import {  ProjectEntity, TaskEntity, UserDatasource } from '../../domain';
-import { TaskModel, ProjectModel} from '../../databases/mongo/models';
+import {  CustomError, ProjectEntity, TaskEntity, UserDatasource, UserEntity } from '../../domain';
+import { TaskModel, ProjectModel, UserModel} from '../../databases/mongo/models';
 import { StatusFilterDto } from '../../domain/dtos/users/status-filter.dto';
 
 export class UserDatasourceImpl implements UserDatasource {
+
+  async findByEmail( email: string ): Promise<UserEntity>{
+    const user = await UserModel.findOne({
+      email: email
+    })
+    console.log(user)
+    return UserEntity.fromObject(user)
+  }
 
   async getUserProjects(statusFilterDto: StatusFilterDto): Promise<ProjectEntity[]> {
     const { _id , status } = statusFilterDto
