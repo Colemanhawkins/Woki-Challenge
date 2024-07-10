@@ -1,5 +1,5 @@
 import { JwtAdapter, bcryptAdapter } from '../../../config';
-import { CustomError, LoginUserDto, UserEntity, UserRepository } from '../../../domain';
+import { CustomError, LoginUserDto, UserEntity } from '../../../domain';
 
 interface loginRes {
     user: UserEntity,

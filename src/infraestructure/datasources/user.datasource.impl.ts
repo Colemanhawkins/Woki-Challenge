@@ -8,7 +8,7 @@ export class UserDatasourceImpl implements UserDatasource {
     const user = await UserModel.findOne({
       email: email
     })
-    console.log(user)
+    if (!user) throw `User with email ${email} not found`;
     return UserEntity.fromObject(user)
   }
 
