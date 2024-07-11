@@ -96,4 +96,4 @@ NOTA2: En la creacion de seed el usuario proporcionado en esta ruta es el unico 
 -    ` GET /users/projects`: Obtenemos una lista de todos nuestros projectos asignados. Ruta protegida *
 -    ` GET /tasks/tasks`: Obtenemos una lista de todos nuestras tareas asignadas. Ruta protegida *
 
-## Por ultimo en la ruta de root  '/insomnia' pueden tener mi coleccion de rutas en formado json en insomnia tendran que importarlo y tendran las rutas ya configuradas y listas para usar.
+## Por ultimo en la ruta de root  '/insomnia' pueden tener mi coleccion de rutas en formato json en insomnia tendran que importarlo y tendran las rutas ya configuradas y listas para usar.
